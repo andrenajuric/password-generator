@@ -27,10 +27,3 @@ SO THAT I can create a strong password that provides greater security
 ## Process
 
 I started by psuedocoding. I knew I would first need to create my variables, so I created arrays for numbers, special characters, uppercase, and lowercase characters. I then created a function for generatePassword() that included all the prompts for the user. After I created each prompt for each characterstic, I made a section of code that would check that the user made at least one selection - if not, they would be alerted to make a choice, and returned to the main page to try again. Then, I created a passwordSelections variable & 'if' statements that would go through each prompt, record each response from the user, and combine the String with the original variables I made (number, special, uppercase, and lowercase). Lastly, I created a for loop that would go through each selection & randomly add each chosen characteristic to the newly generated password.
-
-
-## Website Example
-
-The website appears as follows: 
-
-![screenshot of password generator main page](../assets/03-javascript-homework-demo)
