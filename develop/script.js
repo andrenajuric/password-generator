@@ -1,6 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
 // Creates arrays for password variables
 var number = [0,1,2,3,4,5,6,7,8,9];
 var special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "}", "[", "]", "/", ":", ";", "<", ">", ",", ".", "?"];
@@ -9,14 +12,10 @@ var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 
 // Write password to the #password input
 function writePassword() {
-  var newPassword = " ";
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 // Generates new password when button is clicked
 function generatePassword() {
@@ -48,5 +47,34 @@ function generatePassword() {
     return;
   }
 
+  // Adds users selections to password
+  var passwordSelections = [ ];
 
+  if (confirmNumbers) {
+    passwordSelections = passwordSelections.concat(number);
+  }
+
+  if (confirmSpecials) {
+    passwordSelections = passwordSelections.concat(special);
+  }
+
+  if (confirmUppercase) {
+    passwordSelections = passwordSelections.concat(uppercase);
+  }
+
+  if (confirmLowercase) {
+    passwordSelections = passwordSelections.concat(lowercase);
+  }
+
+  // Creates variable for the newly generated password
+  var newPassword = " ";
+
+  // For-loop runs through user selections for new password & randomizes elements in each array that was called on  
+  for(i = 0; i < passwordLength; i++) {
+    newPassword = newPassword + passwordSelections[Math.floor(Math.random() * passwordSelections.length)];
+    console.log(newPassword);
+  }
+
+  // Generates newly generate password
+  return newPassword;
 }
